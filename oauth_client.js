@@ -31,7 +31,7 @@ var openCenteredPopup = function(url) {
 
   //var fixedUrl = url.slice(1); // Fixes android issue where it adds aditional / to url, does not affect ios
  var fixedUrl = '';
-url.match(/twitter/)) ?fixedUrl = url.slice(1) : fixedUrl = url;
+url.match(/twitter/) ?fixedUrl = url.slice(1) : fixedUrl = url;
   var newwindow = window.open(fixedUrl, '_blank', 'location=yes', closebuttoncaption="Return");
   if (newwindow.focus)
     newwindow.focus();
