@@ -10,7 +10,7 @@ Oauth = {};
 // @param dimensions {optional Object(width, height)} The dimensions of
 //   the popup. If not passed defaults to something sane
 Oauth.initiateLogin = function(credentialToken, url, credentialRequestCompleteCallback, dimensions) {
-  
+
   var popup = openCenteredPopup(url);
 
   // wait for webvew to complete auth and try login
@@ -30,7 +30,9 @@ Oauth.initiateLogin = function(credentialToken, url, credentialRequestCompleteCa
 var openCenteredPopup = function(url) {
 
   //var fixedUrl = url.slice(1); // Fixes android issue where it adds aditional / to url, does not affect ios
-  var newwindow = window.open(url, '_blank', 'location=yes', closebuttoncaption="Return");
+ var fixedUrl = '';
+url.match(/twitter/)) ?fixedUrl = url.slice(1) : fixedUrl = url;
+  var newwindow = window.open(fixedUrl, '_blank', 'location=yes', closebuttoncaption="Return");
   if (newwindow.focus)
     newwindow.focus();
   return newwindow;
